@@ -1,0 +1,35 @@
+{
+  "name": "file-size-tree-js",
+  "version": "1.0.0",
+  "description": "Generate a JavaScript object representing the size of the files in a directory structure.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UsabilityEtc/file-size-tree-js.git"
+  },
+  "author": {
+    "name": "Jeffrey Morgan",
+    "email": "usabilityetc@gmail.com",
+    "url": "http://usabilityetc.com"
+  },
+  "main": "index.min.js",
+  "keywords": [
+    "directory",
+    "file",
+    "size",
+    "tree"
+  ],
+  "devDependencies": {
+    "blanket": "^1.1.7",
+    "chai": "^3.2.0",
+    "chai-things": "^0.2.0",
+    "grunt-blanket": "0.0.8",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.7",
+    "path": "^0.11.14",
+    "tmp": "0.0.27",
+    "touch": "^1.0.0"
+  }
+}

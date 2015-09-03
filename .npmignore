@@ -1,0 +1,6 @@
+src/
+test/
+coverage/
+*.tgz
+*.coffee
+.npmignore
