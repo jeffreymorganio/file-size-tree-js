@@ -78,7 +78,7 @@ was produced with the default keys shown in this options object:
 
 ## Example: D3 Treemap Layout Configuration
 
-One application of the `fileSizeTree` function is building a directory structure object suitable for use with the [D3 treemap layout](https://github.com/mbostock/d3/wiki/Treemap-Layout). The following options provide the correct keys for the treemap layout:
+One application of the `fileSizeTree` function is building a directory structure object suitable for use with the [D3 treemap layout](https://github.com/mbostock/d3/wiki/Treemap-Layout). The following options provide the correct keys for the D3 treemap layout:
 
 ```
 var options = {
@@ -88,4 +88,32 @@ var options = {
 };
 var path = '/path/to/a/directory';
 var tree = fileSizeTree(path, options);
+```
+
+These options will create a directory structure object with the following keys:
+
+```
+{
+  name: "aDirectory",
+  children: [
+    {
+      name: "aFile",
+      size: 93480243
+    },
+    {
+      name: "aSubDirectory",
+      children: [
+        {
+          name: "aSubSubDirectory",
+          children: [
+            {
+              name: "anotherFile",
+              size: 7293
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
