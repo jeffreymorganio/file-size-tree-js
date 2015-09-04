@@ -16,21 +16,23 @@ function fileSizeTree(directoryPath, options) {
     directoryNode[treeObjectKeys.directoryName] = path.basename(resolvedDirectoryPath);
     directoryNode[treeObjectKeys.files] = [];
 
-    var directory = fs.readdirSync(directoryPath);
-    directory.forEach(function(file) {
-      var resolvedFilePath = path.join(resolvedDirectoryPath, file);
-      var fileInfo = getFileInfo(resolvedFilePath);
-      if (fileInfo) {
-        if (fileInfo.isDirectory()) {
-          directoryNode[treeObjectKeys.files].push(buildFileSizeTree(resolvedFilePath));
-        } else {
-          var fileNode = {};
-          fileNode[treeObjectKeys.fileName] = file;
-          fileNode[treeObjectKeys.fileSize] = fileInfo['size'];
-          directoryNode[treeObjectKeys.files].push(fileNode);
+    var directory = readDirectory(directoryPath);
+    if (directory) {
+      directory.forEach(function(file) {
+        var resolvedFilePath = path.join(resolvedDirectoryPath, file);
+        var fileInfo = getFileInfo(resolvedFilePath);
+        if (fileInfo) {
+          if (fileInfo.isDirectory()) {
+            directoryNode[treeObjectKeys.files].push(buildFileSizeTree(resolvedFilePath));
+          } else {
+            var fileNode = {};
+            fileNode[treeObjectKeys.fileName] = file;
+            fileNode[treeObjectKeys.fileSize] = fileInfo['size'];
+            directoryNode[treeObjectKeys.files].push(fileNode);
+          }
         }
-      }
-    });
+      });
+    }
     return directoryNode;
   }
 }
@@ -58,6 +60,18 @@ function configureTreeObjectKeysWithOptions(options) {
          fileName: options.fileName      || 'fileName',
          fileSize: options.fileSize      || 'size'
   };
+}
+
+function readDirectory(directoryPath) {
+  var directory = null;
+  try {
+    directory = fs.readdirSync(directoryPath);
+  } catch (e) {
+    // The exceptions caught here are generally thrown when
+    // the path is invalid or when we do not have permission
+    // to read the directory so we ignore them.
+  }
+  return directory;
 }
 
 function getFileInfo(filePath) {
