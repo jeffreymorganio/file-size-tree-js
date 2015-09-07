@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var fs = require('fs');
 var path = require('path');
@@ -10,7 +10,7 @@ function fileSizeTree(directoryPath, options) {
   return buildFileSizeTree(directoryPath);
 
   function buildFileSizeTree(directoryPath) {
-    var resolvedDirectoryPath = fs.realpathSync(directoryPath)
+    var resolvedDirectoryPath = fs.realpathSync(directoryPath);
 
     var directoryNode = {};
     directoryNode[treeObjectKeys.directoryName] = path.basename(resolvedDirectoryPath);
@@ -27,7 +27,7 @@ function fileSizeTree(directoryPath, options) {
           } else {
             var fileNode = {};
             fileNode[treeObjectKeys.fileName] = file;
-            fileNode[treeObjectKeys.fileSize] = fileInfo['size'];
+            fileNode[treeObjectKeys.fileSize] = fileInfo.size;
             directoryNode[treeObjectKeys.files].push(fileNode);
           }
         }
