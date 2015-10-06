@@ -2,7 +2,7 @@
 
 **file-size-tree-js** provides the `fileSizeTree` function that builds a JavaScript object representing a hierarchical directory structure. Each directory is represented as an object containing the name of the directory and an array containing the files and sub-directories in the directory. Each file is represented as an object containing the name of the file and its size in bytes. The following is an example directory structure object:
 
-```
+```javascript
 {
   directoryName: "aDirectory",
   files: [
@@ -38,7 +38,7 @@ npm install file-size-tree-js
 
 ## Use
 
-```
+```javascript
 var fileSizeTree = require('file-size-tree-js');
 
 var path = '/path/to/a/directory';
@@ -53,7 +53,7 @@ Returns a JavaScript object representing the hierarchical directory structure ro
 
 The keys in the returned JavaScript object are configured by passing an options object as the second parameter to `fileSizeTree`. For example, the following directory structure object:
 
-```
+```javascript
 {
   directoryName: "aDirectory",
   files: [
@@ -67,7 +67,7 @@ The keys in the returned JavaScript object are configured by passing an options 
 
 was produced with the default keys shown in this options object:
 
-```
+```javascript
 {
   directoryName: "directoryName",
   files: "files",
@@ -80,7 +80,7 @@ was produced with the default keys shown in this options object:
 
 One application of the `fileSizeTree` function is building a directory structure object suitable for use with the [D3 treemap layout](https://github.com/mbostock/d3/wiki/Treemap-Layout). The following options provide the correct keys for the D3 treemap layout:
 
-```
+```javascript
 var options = {
   fileName: 'name',
   files: 'children',
@@ -92,7 +92,7 @@ var tree = fileSizeTree(path, options);
 
 These options will create a directory structure object with the following keys:
 
-```
+```javascript
 {
   name: "aDirectory",
   children: [
