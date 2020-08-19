@@ -1,6 +1,6 @@
 {
   "name": "file-size-tree-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate a JavaScript object representing the size of the files in a directory structure.",
   "license": "MIT",
   "repository": {
@@ -10,7 +10,7 @@
   "author": {
     "name": "Jeffrey Morgan",
     "email": "usabilityetc@gmail.com",
-    "url": "http://usabilityetc.com"
+    "url": "https://jeffreymorgan.io"
   },
   "main": "index.min.js",
   "keywords": [
